@@ -1,30 +1,36 @@
 // Furby Investment Platform - JavaScript
 
 // Verificar autenticação antes de carregar a aplicação
-if (!window.location.pathname.includes('login.html')) {
+if (!window.location.pathname.includes('index.html') && !window.location.pathname.endsWith('/')) {
     // Verificar se já existe uma sessão válida antes de carregar o auth.js
     const existingSession = localStorage.getItem('furby_user_session');
     if (!existingSession) {
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
     } else {
         try {
             const session = JSON.parse(existingSession);
             if (!session || Date.now() > session.expiresAt) {
                 localStorage.removeItem('furby_user_session');
-                window.location.href = 'login.html';
+                window.location.href = 'index.html';
             } else {
-                // Carregar sistema de autenticação apenas se a sessão for válida
-                const authScript = document.createElement('script');
-                authScript.src = 'js/auth.js';
-                authScript.onload = function() {
-                    // Atualizar interface com dados do usuário
-                    updateUserInterface();
+                // Carregar sistema de API primeiro
+                const apiScript = document.createElement('script');
+                apiScript.src = 'js/api.js';
+                apiScript.onload = function() {
+                    // Depois carregar sistema de autenticação
+                    const authScript = document.createElement('script');
+                    authScript.src = 'js/auth.js';
+                    authScript.onload = function() {
+                        // Atualizar interface com dados do usuário
+                        updateUserInterface();
+                    };
+                    document.head.appendChild(authScript);
                 };
-                document.head.appendChild(authScript);
+                document.head.appendChild(apiScript);
             }
         } catch (e) {
             localStorage.removeItem('furby_user_session');
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
         }
     }
 }
@@ -1723,11 +1729,8 @@ async function processDeposit() {
     try {
         showNotification('Gerando PIX...', 'info');
         
-        // Usar ASAAS como provedor padrão
-        const response = await apiRequest('/asaas/deposit', {
-            method: 'POST',
-            body: JSON.stringify({ amount, description })
-        });
+        // Usar PIX como provedor padrão
+        const response = await window.API.Pix.createDeposit(amount);
 
         if (response.success) {
             closeModal();
@@ -1769,10 +1772,7 @@ async function processWithdraw() {
     try {
         showNotification('Processando saque via PIX...', 'info');
         
-        const response = await apiRequest('/asaas/withdraw', {
-            method: 'POST',
-            body: JSON.stringify({ amount, pixKey, password })
-        });
+        const response = await window.API.Pix.createWithdrawal(amount, pixKey);
 
         if (response.success) {
             closeModal();
@@ -1877,9 +1877,7 @@ async function checkPaymentStatus(transactionId) {
     try {
         showNotification('Verificando pagamento...', 'info');
         
-        const response = await apiRequest(`/transactions/${transactionId}`, {
-            method: 'GET'
-        });
+        const response = await window.API.Transaction.getById(transactionId);
         
         if (response.transaction) {
             if (response.transaction.status === 'completed') {

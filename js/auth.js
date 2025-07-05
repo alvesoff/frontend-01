@@ -1,88 +1,5 @@
 // Sistema de Autenticação - Furby Investimentos
-
-// Configurações da API
-const API_BASE_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:3000/api' 
-    : 'https://furbyback.onrender.com/api';
-
-// Token de autenticação
-let authToken = localStorage.getItem('authToken');
-let refreshToken = localStorage.getItem('refreshToken');
-
-// Headers padrão para requisições
-const getHeaders = () => {
-    const headers = {
-        'Content-Type': 'application/json'
-    };
-    
-    if (authToken) {
-        headers['Authorization'] = `Bearer ${authToken}`;
-    }
-    
-    return headers;
-};
-
-// Função para fazer requisições à API
-const apiRequest = async (endpoint, options = {}) => {
-    const url = `${API_BASE_URL}${endpoint}`;
-    const config = {
-        headers: getHeaders(),
-        ...options
-    };
-    
-    try {
-        const response = await fetch(url, config);
-        const data = await response.json();
-        
-        // Se token expirou, tentar renovar
-        if (response.status === 401 && data.code === 'TOKEN_EXPIRED' && refreshToken) {
-            const renewed = await renewToken();
-            if (renewed) {
-                // Repetir requisição com novo token
-                config.headers = getHeaders();
-                const retryResponse = await fetch(url, config);
-                return await retryResponse.json();
-            }
-        }
-        
-        return { ...data, status: response.status };
-    } catch (error) {
-        console.error('Erro na requisição:', error);
-        return {
-            success: false,
-            message: 'Erro de conexão com o servidor'
-        };
-    }
-};
-
-// Função para renovar token
-const renewToken = async () => {
-    try {
-        const response = await fetch(`${API_BASE_URL}/auth/refresh`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ refreshToken })
-        });
-        
-        const data = await response.json();
-        
-        if (data.success) {
-            authToken = data.data.token;
-            localStorage.setItem('authToken', authToken);
-            return true;
-        } else {
-            // Refresh token inválido, fazer logout
-            logout();
-            return false;
-        }
-    } catch (error) {
-        console.error('Erro ao renovar token:', error);
-        logout();
-        return false;
-    }
-};
+// Integrado com o novo sistema de API centralizado
 
 // Configurações
 const AUTH_CONFIG = {
@@ -201,18 +118,11 @@ class AuthManager {
         this.showLoading(true);
         
         try {
-            const response = await apiRequest('/auth/login', {
-                method: 'POST',
-                body: JSON.stringify({ email, password })
-            });
+            const response = await window.API.Auth.login(email, password);
             
             if (response.success) {
                 // Salvar tokens e dados do usuário
-                authToken = response.data.token;
-                refreshToken = response.data.refreshToken;
-                
-                localStorage.setItem('authToken', authToken);
-                localStorage.setItem('refreshToken', refreshToken);
+                window.API.TokenManager.setTokens(response.data.token, response.data.refreshToken);
                 
                 this.createSession(response.data.user);
                 this.showSuccess('Login realizado com sucesso!');
@@ -253,18 +163,11 @@ class AuthManager {
                 requestBody.referralCode = referralCode.trim();
             }
             
-            const response = await apiRequest('/auth/register', {
-                method: 'POST',
-                body: JSON.stringify(requestBody)
-            });
+            const response = await window.API.Auth.register(requestBody);
             
             if (response.success) {
                 // Salvar tokens e dados do usuário
-                authToken = response.data.token;
-                refreshToken = response.data.refreshToken;
-                
-                localStorage.setItem('authToken', authToken);
-                localStorage.setItem('refreshToken', refreshToken);
+                window.API.TokenManager.setTokens(response.data.token, response.data.refreshToken);
                 
                 this.createSession(response.data.user);
                 this.showSuccess('Cadastro realizado com sucesso!');
@@ -435,19 +338,13 @@ class AuthManager {
     async logout() {
         try {
             // Tentar fazer logout no servidor
-            if (authToken) {
-                await apiRequest('/auth/logout', {
-                    method: 'POST'
-                });
+            if (window.API.TokenManager.getToken()) {
+                await window.API.Auth.logout();
             }
         } catch (error) {
             console.error('Erro no logout:', error);
-        } finally {
-            // Limpar dados locais
-            authToken = null;
-            refreshToken = null;
-            localStorage.removeItem('authToken');
-            localStorage.removeItem('refreshToken');
+            // Limpar dados locais mesmo se houver erro no servidor
+            window.API.TokenManager.clearTokens();
             localStorage.removeItem(AUTH_CONFIG.SESSION_KEY);
             window.location.href = 'index.html';
         }
@@ -575,13 +472,16 @@ window.onclick = function(event) {
 async function logout() {
     if (window.authManager) {
         await window.authManager.logout();
+    } else {
+        // Fallback para usar API diretamente
+        await window.API.Auth.logout();
     }
 }
 
 // Função para obter dados atualizados do usuário
 const refreshUserData = async () => {
     try {
-        const response = await apiRequest('/auth/me');
+        const response = await window.API.Auth.me();
         
         if (response.success) {
             const currentUser = getCurrentUser();
