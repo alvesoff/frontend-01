@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercados - Furby Trading</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="back-btn" onclick="window.location.href='dashboard.html'">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h1 class="page-title">Mercados</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <span class="user-name">João Silva</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Market Overview -->
+            <section class="market-overview">
+                <div class="market-header">
+                    <h2>Visão Geral do Mercado</h2>
+                    <div class="market-time">
+                        <i class="fas fa-clock"></i>
+                        <span id="current-time">--:--:--</span>
+                    </div>
+                </div>
+
+                <!-- Top Cryptocurrencies -->
+                <div class="crypto-list">
+                    <div class="crypto-item">
+                        <div class="crypto-info">
+                            <div class="crypto-icon btc">
+                                <i class="fab fa-bitcoin"></i>
+                            </div>
+                            <div class="crypto-details">
+                                <span class="crypto-name">Bitcoin</span>
+                                <span class="crypto-symbol">BTC/USDT</span>
+                            </div>
+                        </div>
+                        <div class="crypto-price">
+                            <span class="price">$68,933.70</span>
+                            <span class="change positive">+0.45%</span>
+                        </div>
+                    </div>
+
+                    <div class="crypto-item">
+                        <div class="crypto-info">
+                            <div class="crypto-icon eth">
+                                <i class="fab fa-ethereum"></i>
+                            </div>
+                            <div class="crypto-details">
+                                <span class="crypto-name">Ethereum</span>
+                                <span class="crypto-symbol">ETH/USDT</span>
+                            </div>
+                        </div>
+                        <div class="crypto-price">
+                            <span class="price">$3,200.45</span>
+                            <span class="change negative">-1.23%</span>
+                        </div>
+                    </div>
+
+                    <div class="crypto-item">
+                        <div class="crypto-info">
+                            <div class="crypto-icon bnb">
+                                <span class="crypto-symbol-text">BNB</span>
+                            </div>
+                            <div class="crypto-details">
+                                <span class="crypto-name">Binance Coin</span>
+                                <span class="crypto-symbol">BNB/USDT</span>
+                            </div>
+                        </div>
+                        <div class="crypto-price">
+                            <span class="price">$687.20</span>
+                            <span class="change positive">+2.15%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trading Chart Section -->
+            <section class="chart-section">
+                <div class="chart-header">
+                    <h3>Gráfico de Trading</h3>
+                    <div class="chart-controls">
+                        <select class="timeframe-select">
+                            <option value="1m">1m</option>
+                            <option value="5m">5m</option>
+                            <option value="15m">15m</option>
+                            <option value="1h" selected>1h</option>
+                            <option value="4h">4h</option>
+                            <option value="1d">1D</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Chart Container -->
+                <div class="chart-container">
+                    <!-- TradingView Widget -->
+                    <div class="tradingview-widget-container">
+                        <div id="tradingview_chart"></div>
+                        
+                        <!-- Trading Controls -->
+                        <div class="trading-controls">
+                            <div class="trading-buttons">
+                                <button class="buy-btn" onclick="showComingSoon()">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>COMPRAR</span>
+                                </button>
+                                <button class="sell-btn" onclick="showComingSoon()">
+                                    <i class="fas fa-arrow-down"></i>
+                                    <span>VENDER</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Coming Soon Overlay -->
+                        <div class="coming-soon-overlay" id="comingSoonOverlay">
+                            <div class="coming-soon-content">
+                                <div class="coming-soon-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h3>Em Breve</h3>
+                                <p>Funcionalidade de trading será lançada em breve!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Stats -->
+            <section class="market-stats">
+                <h3>Estatísticas do Mercado</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Cap. de Mercado</span>
+                            <span class="stat-value">$2.1T</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Volume 24h</span>
+                            <span class="stat-value">$89.5B</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Dominância BTC</span>
+                            <span class="stat-value">52.3%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Criptomoedas</span>
+                            <span class="stat-value">2,847</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- TradingView Widget Script -->
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script src="js/mercados.js"></script>
+</body>
+</html>

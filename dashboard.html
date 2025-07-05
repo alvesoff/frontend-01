@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furby - Plataforma de Investimentos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo/34188cdd-d426-4619-90d5-7b51858fba31d.jpg" alt="Furby Logo" class="logo-img">
+                <span class="logo-text">Furby</span>
+            </div>
+            <nav class="nav">
+                <a href="#dashboard" class="nav-link active">Dashboard</a>
+                <a href="#traders" class="nav-link">Traders</a>
+                <a href="#depositos" class="nav-link">Investimentos</a>
+                <a href="#indicacoes" class="nav-link">Indicações</a>
+            </nav>
+            <div class="user-info">
+                <div class="balance">
+                    <span class="balance-label">Saldo disponível</span>
+                    <span class="balance-value">R$ 0,44</span>
+                </div>
+                <div class="user-profile">
+                    <span class="user-name">Usuário</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Dashboard Stats -->
+            <section class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Rendimentos de Hoje</span>
+                        <span class="stat-value positive">+R$ 0,00</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Ontem</span>
+                        <span class="stat-value">0,00</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Saldo Total</span>
+                        <span class="stat-value positive">+R$ 0,00</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Depositado</span>
+                        <span class="stat-value positive">+R$ 5,44</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Total de Rendimentos</span>
+                        <span class="stat-value positive">+R$ 0,00</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Section -->
+            <section class="market-section">
+                <div class="section-header">
+                    <h2>Mercados Estratégicos</h2>
+                    <div class="market-tabs">
+                        <button class="tab-btn active">Todos</button>
+                        <button class="tab-btn">Alto Retorno</button>
+                        <button class="tab-btn">Lucros Estáveis</button>
+                    </div>
+                </div>
+
+                <!-- Traders List -->
+                <div class="traders-grid">
+                    <div class="trader-card">
+                        <div class="trader-header">
+                            <div class="trader-avatar">
+                                <img src="img/S8036457.png" alt="Alan Franco">
+                            </div>
+                            <div class="trader-info">
+                                <h3>Alan Franco</h3>
+                                <div class="trader-stats">
+                                    <span class="success-rate">77% Taxa de lucro</span>
+                                </div>
+                            </div>
+                            <div class="trader-period">
+                                <span>1 dia</span>
+                                <span class="period-label">Prazo</span>
+                            </div>
+                        </div>
+                        <div class="trader-investment">
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento mínimo</span>
+                                <span class="investment-value">R$ 5</span>
+                            </div>
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento máximo</span>
+                                <span class="investment-value">R$ 5</span>
+                            </div>
+                        </div>
+                        <button class="subscribe-btn">Subscrever</button>
+                    </div>
+
+                    <div class="trader-card">
+                        <div class="trader-header">
+                            <div class="trader-avatar">
+                                <img src="img/Imagem do WhatsApp de 2025-07-02 à(s) 20.50.31_a3c0d434.jpg" alt="Adilson Ribeiro">
+                            </div>
+                            <div class="trader-info">
+                                <h3>Adilson Ribeiro</h3>
+                                <div class="trader-stats">
+                                    <span class="success-rate">10% Taxa de lucro</span>
+                                </div>
+                            </div>
+                            <div class="trader-period">
+                                <span>3 dias</span>
+                                <span class="period-label">Prazo</span>
+                            </div>
+                        </div>
+                        <div class="trader-investment">
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento mínimo</span>
+                                <span class="investment-value">R$ 10</span>
+                            </div>
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento máximo</span>
+                                <span class="investment-value">R$ 30</span>
+                            </div>
+                        </div>
+                        <button class="subscribe-btn">Subscrever</button>
+                    </div>
+
+                    <div class="trader-card">
+                        <div class="trader-header">
+                            <div class="trader-avatar">
+                                <img src="img/endre-wilson.jpg" alt="Endre Wilson">
+                            </div>
+                            <div class="trader-info">
+                                <h3>Endre Wilson</h3>
+                                <div class="trader-stats">
+                                    <span class="success-rate">33% Taxa de lucro</span>
+                                </div>
+                            </div>
+                            <div class="trader-period">
+                                <span>6 dias</span>
+                                <span class="period-label">Prazo</span>
+                            </div>
+                        </div>
+                        <div class="trader-investment">
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento mínimo</span>
+                                <span class="investment-value">R$ 40</span>
+                            </div>
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento máximo</span>
+                                <span class="investment-value">R$ 99,99</span>
+                            </div>
+                        </div>
+                        <button class="subscribe-btn">Subscrever</button>
+                    </div>
+
+                    <div class="trader-card">
+                        <div class="trader-header">
+                            <div class="trader-avatar">
+                                <img src="img/Harshika Patel.jpg" alt="Harshika Patel">
+                            </div>
+                            <div class="trader-info">
+                                <h3>Harshika Patel</h3>
+                                <div class="trader-stats">
+                                    <span class="success-rate">35% Taxa de lucro</span>
+                                </div>
+                            </div>
+                            <div class="trader-period">
+                                <span>12 dias</span>
+                                <span class="period-label">Prazo</span>
+                            </div>
+                        </div>
+                        <div class="trader-investment">
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento mínimo</span>
+                                <span class="investment-value">R$ 10</span>
+                            </div>
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento máximo</span>
+                                <span class="investment-value">R$ 600</span>
+                            </div>
+                        </div>
+                        <button class="subscribe-btn">Subscrever</button>
+                    </div>
+
+                    <div class="trader-card">
+                        <div class="trader-header">
+                            <div class="trader-avatar">
+                                <img src="img/Imagem do WhatsApp de 2025-07-02 à(s) 20.50.57_9dd339de.jpg" alt="Vicente berto">
+                            </div>
+                            <div class="trader-info">
+                                <h3>Vicente Berto</h3>
+                                <div class="trader-stats">
+                                    <span class="success-rate">90% Taxa de lucro</span>
+                                </div>
+                            </div>
+                            <div class="trader-period">
+                                <span>20 dias</span>
+                                <span class="period-label">Prazo</span>
+                            </div>
+                        </div>
+                        <div class="trader-investment">
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento mínimo</span>
+                                <span class="investment-value">R$ 100</span>
+                            </div>
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento máximo</span>
+                                <span class="investment-value">R$ 199,99</span>
+                            </div>
+                        </div>
+                        <button class="subscribe-btn">Subscrever</button>
+                    </div>
+
+                    <div class="trader-card">
+                        <div class="trader-header">
+                            <div class="trader-avatar">
+                                <img src="img/solomon_david_193x193.avif" alt="Solomon David">
+                            </div>
+                            <div class="trader-info">
+                                <h3>Solomon David</h3>
+                                <div class="trader-stats">
+                                    <span class="success-rate">140% Taxa de lucro</span>
+                                </div>
+                            </div>
+                            <div class="trader-period">
+                                <span>35 dias</span>
+                                <span class="period-label">Prazo</span>
+                            </div>
+                        </div>
+                        <div class="trader-investment">
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento mínimo</span>
+                                <span class="investment-value">R$ 200</span>
+                            </div>
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento máximo</span>
+                                <span class="investment-value">R$ 499,99</span>
+                            </div>
+                        </div>
+                        <button class="subscribe-btn">Subscrever</button>
+                    </div>
+
+                    <div class="trader-card">
+                        <div class="trader-header">
+                            <div class="trader-avatar">
+                                <img src="img/john-waldron-1000x1000.avif" alt="John Waldron">
+                            </div>
+                            <div class="trader-info">
+                                <h3>John Waldron</h3>
+                                <div class="trader-stats">
+                                    <span class="success-rate">210% Taxa de lucro</span>
+                                </div>
+                            </div>
+                            <div class="trader-period">
+                                <span>60 dias</span>
+                                <span class="period-label">Prazo</span>
+                            </div>
+                        </div>
+                        <div class="trader-investment">
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento mínimo</span>
+                                <span class="investment-value">R$ 500</span>
+                            </div>
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento máximo</span>
+                                <span class="investment-value">R$ 999,99</span>
+                            </div>
+                        </div>
+                        <button class="subscribe-btn">Subscrever</button>
+                    </div>
+
+                    <div class="trader-card">
+                        <div class="trader-header">
+                            <div class="trader-avatar">
+                                <img src="img/tradovate-corporate-logo.png" alt="Tradovate">
+                            </div>
+                            <div class="trader-info">
+                                <h3>Tradovate</h3>
+                                <div class="trader-stats">
+                                    <span class="success-rate">-- Taxa de lucro</span>
+                                </div>
+                            </div>
+                            <div class="trader-period">
+                                <span>90 dias</span>
+                                <span class="period-label">Prazo</span>
+                            </div>
+                        </div>
+                        <div class="trader-investment">
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento mínimo</span>
+                                <span class="investment-value">--</span>
+                            </div>
+                            <div class="investment-info">
+                                <span class="investment-label">Investimento máximo</span>
+                                <span class="investment-value">--</span>
+                            </div>
+                        </div>
+                        <button class="subscribe-btn">Subscrever</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Referral System -->
+            <section class="referral-section">
+                <div class="referral-card">
+                    <div class="referral-header">
+                        <h2>Sistema de Indicações</h2>
+                        <div class="referral-levels">
+                            <div class="level active">Nível 1: 8%</div>
+                            <div class="level">Nível 2: 3%</div>
+                            <div class="level">Nível 3: 1%</div>
+                            <div class="level bonus">10% +2 Convide amigos para investir</div>
+                        </div>
+                    </div>
+                    <div class="referral-stats">
+                        <div class="referral-stat">
+                            <span class="stat-label">Valor da Comissão (USDT)</span>
+                            <span class="stat-value">0.00</span>
+                        </div>
+                        <div class="referral-stat">
+                            <span class="stat-label">Comissão total (USDT)</span>
+                            <span class="stat-value">0.00</span>
+                        </div>
+                        <div class="referral-stat">
+                            <span class="stat-label">Investimento total</span>
+                            <span class="stat-value">0.00</span>
+                        </div>
+                        <div class="referral-stat">
+                            <span class="stat-label">Número de convites</span>
+                            <span class="stat-value">0</span>
+                        </div>
+                    </div>
+                    <div class="referral-actions">
+                        <button class="action-btn primary">Copiar link</button>
+                        <button class="action-btn secondary">Mais maneiras</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Início</span>
+        </a>
+        <a href="mercados.html" class="nav-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Mercados</span>
+        </a>
+        <a href="carteira.html" class="nav-item">
+            <i class="fas fa-wallet"></i>
+            <span>Carteira</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Perfil</span>
+        </a>
+    </nav>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

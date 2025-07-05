@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carteira - Furby Investimentos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo/34188cdd-d426-4619-90d5-7b51858fba31.jpg" alt="Furby Logo" class="logo-img">
+                <span class="logo-text">Furby</span>
+            </div>
+            <div class="user-info">
+                <div class="balance">
+                    <span class="balance-label">Saldo</span>
+                    <span class="balance-amount">R$ 12.450,00</span>
+                </div>
+                <div class="user-profile">
+                    <span class="user-name">Usuário</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Title -->
+        <div class="page-header">
+            <h1><i class="fas fa-wallet"></i> Carteira</h1>
+            <p>Gerencie seus investimentos e indicações</p>
+        </div>
+
+        <!-- Wallet Actions -->
+        <div class="wallet-actions">
+            <button class="action-btn deposit-btn" onclick="openDepositModal()">
+                <i class="fas fa-plus-circle"></i>
+                <span>Depositar</span>
+            </button>
+            <button class="action-btn withdraw-btn" onclick="openWithdrawModal()">
+                <i class="fas fa-minus-circle"></i>
+                <span>Sacar</span>
+            </button>
+        </div>
+
+        <!-- Wallet Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value">R$ 12.450,00</span>
+                    <span class="stat-label">Saldo Total</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value">R$ 2.340,00</span>
+                    <span class="stat-label">Investido</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value">R$ 890,50</span>
+                    <span class="stat-label">Comissões</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value">23</span>
+                    <span class="stat-label">Indicados</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Referral System -->
+        <div class="referral-section">
+            <div class="section-header">
+                <h2><i class="fas fa-share-alt"></i> Sistema de Indicações</h2>
+                <p>Convide amigos e ganhe comissões em 3 níveis</p>
+            </div>
+
+            <!-- Referral Levels -->
+            <div class="referral-levels">
+                <div class="level-card level-1">
+                    <div class="level-header">
+                        <span class="level-number">1</span>
+                        <span class="level-title">Nível 1</span>
+                    </div>
+                    <div class="level-commission">8%</div>
+                    <div class="level-description">Comissão direta dos seus indicados</div>
+                    <div class="level-stats">
+                        <span><i class="fas fa-users"></i> 12 pessoas</span>
+                        <span><i class="fas fa-dollar-sign"></i> R$ 450,00</span>
+                    </div>
+                </div>
+
+                <div class="level-card level-2">
+                    <div class="level-header">
+                        <span class="level-number">2</span>
+                        <span class="level-title">Nível 2</span>
+                    </div>
+                    <div class="level-commission">3%</div>
+                    <div class="level-description">Comissão dos indicados dos seus indicados</div>
+                    <div class="level-stats">
+                        <span><i class="fas fa-users"></i> 8 pessoas</span>
+                        <span><i class="fas fa-dollar-sign"></i> R$ 280,50</span>
+                    </div>
+                </div>
+
+                <div class="level-card level-3">
+                    <div class="level-header">
+                        <span class="level-number">3</span>
+                        <span class="level-title">Nível 3</span>
+                    </div>
+                    <div class="level-commission">1%</div>
+                    <div class="level-description">Comissão do terceiro nível</div>
+                    <div class="level-stats">
+                        <span><i class="fas fa-users"></i> 3 pessoas</span>
+                        <span><i class="fas fa-dollar-sign"></i> R$ 160,00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Bonus -->
+            <div class="bonus-card">
+                <div class="bonus-header">
+                    <i class="fas fa-gift"></i>
+                    <h3>Bônus Especial</h3>
+                </div>
+                <div class="bonus-content">
+                    <div class="bonus-rate">10% + 2</div>
+                    <div class="bonus-description">
+                        Ganhe 10% de comissão extra + 2 pontos de bônus para cada novo convite ativo
+                    </div>
+                </div>
+            </div>
+
+            <!-- Referral Link -->
+            <div class="referral-link-section">
+                <h3><i class="fas fa-link"></i> Seu Link de Indicação</h3>
+                <div class="link-container">
+                    <input type="text" id="referralLink" value="https://furby.com/ref/USER123" readonly>
+                    <button class="copy-btn" onclick="copyReferralLink()">
+                        <i class="fas fa-copy"></i>
+                        Copiar
+                    </button>
+                </div>
+                <div class="share-buttons">
+                    <button class="share-btn whatsapp" onclick="shareWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </button>
+                    <button class="share-btn telegram" onclick="shareTelegram()">
+                        <i class="fab fa-telegram"></i>
+                        Telegram
+                    </button>
+                    <button class="share-btn facebook" onclick="shareFacebook()">
+                        <i class="fab fa-facebook"></i>
+                        Facebook
+                    </button>
+                    <button class="share-btn twitter" onclick="shareTwitter()">
+                        <i class="fab fa-twitter"></i>
+                        Twitter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recent Referrals -->
+            <div class="recent-referrals">
+                <h3><i class="fas fa-clock"></i> Indicações Recentes</h3>
+                <div class="referral-list">
+                    <div class="referral-item">
+                        <div class="referral-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="referral-info">
+                            <span class="referral-name">João Silva</span>
+                            <span class="referral-date">Hoje, 14:30</span>
+                        </div>
+                        <div class="referral-commission">
+                            <span class="commission-amount">+R$ 45,00</span>
+                            <span class="commission-level">Nível 1</span>
+                        </div>
+                    </div>
+                    <div class="referral-item">
+                        <div class="referral-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="referral-info">
+                            <span class="referral-name">Maria Santos</span>
+                            <span class="referral-date">Ontem, 09:15</span>
+                        </div>
+                        <div class="referral-commission">
+                            <span class="commission-amount">+R$ 23,50</span>
+                            <span class="commission-level">Nível 2</span>
+                        </div>
+                    </div>
+                    <div class="referral-item">
+                        <div class="referral-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="referral-info">
+                            <span class="referral-name">Pedro Costa</span>
+                            <span class="referral-date">2 dias atrás</span>
+                        </div>
+                        <div class="referral-commission">
+                            <span class="commission-amount">+R$ 67,20</span>
+                            <span class="commission-level">Nível 1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="dashboard.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Início</span>
+        </a>
+        <a href="mercados.html" class="nav-item">
+            <i class="fas fa-chart-bar"></i>
+            <span>Mercados</span>
+        </a>
+        <a href="carteira.html" class="nav-item active">
+            <i class="fas fa-wallet"></i>
+            <span>Carteira</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Perfil</span>
+        </a>
+    </nav>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Check for hash in URL and scroll to referral link section
+        window.addEventListener('load', function() {
+            if (window.location.hash === '#referral-link') {
+                const referralSection = document.querySelector('.referral-link-section');
+                if (referralSection) {
+                    setTimeout(() => {
+                        referralSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Show notification
+                        showNotification('Navegando para Seu Link de Indicação...', 'info');
+                    }, 100);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

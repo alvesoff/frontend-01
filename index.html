@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Furby Trading</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-left">
+                <div class="login-logo">
+                    <img src="logo/34188cdd-d426-4619-90d5-7b51858fba31d-removebg-preview.png" alt="Furby Trading Logo">
+                    <h1>Furby Trading</h1>
+                </div>
+                <p class="login-subtitle">Acesse sua conta para começar a investir</p>
+                <div class="login-features">
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Invista em mercados globais</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>Segurança de ponta a ponta</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>Acesse de qualquer dispositivo</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="login-right">
+                <div class="login-tabs">
+                    <button class="login-tab active" onclick="switchTab('login')">Login</button>
+                    <button class="login-tab" onclick="switchTab('register')">Cadastro</button>
+                </div>
+                
+                <div id="successMessage" class="success-message">Cadastro realizado com sucesso! Faça login para continuar.</div>
+                
+                <form id="loginForm" class="login-form active">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <div class="input-wrapper">
+                        <i class="input-icon fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" placeholder="Seu email" required>
+                    </div>
+                    <div class="error-message">Email inválido</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Senha</label>
+                    <div class="input-wrapper">
+                        <i class="input-icon fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Sua senha" required>
+                    </div>
+                    <div class="error-message">Senha incorreta</div>
+                </div>
+                
+                <button type="submit" class="login-btn">Entrar</button>
+                
+                <div class="forgot-password">
+                    <a href="#" onclick="showForgotPassword()">Esqueceu sua senha?</a>
+                </div>
+            </form>
+            
+            <form id="registerForm" class="login-form">
+                <div class="form-group">
+                    <label for="registerName">Nome completo</label>
+                    <div class="input-wrapper">
+                        <i class="input-icon fas fa-user"></i>
+                        <input type="text" id="registerName" placeholder="Seu nome completo" required>
+                    </div>
+                    <div class="error-message">Nome é obrigatório</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <div class="input-wrapper">
+                        <i class="input-icon fas fa-envelope"></i>
+                        <input type="email" id="registerEmail" placeholder="Seu melhor email" required>
+                    </div>
+                    <div class="error-message">Email inválido</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerPassword">Senha</label>
+                    <div class="input-wrapper">
+                        <i class="input-icon fas fa-lock"></i>
+                        <input type="password" id="registerPassword" placeholder="Crie uma senha forte" required>
+                    </div>
+                    <div class="error-message">A senha deve ter pelo menos 6 caracteres</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar senha</label>
+                    <div class="input-wrapper">
+                        <i class="input-icon fas fa-shield-alt"></i>
+                        <input type="password" id="confirmPassword" placeholder="Confirme sua senha" required>
+                    </div>
+                    <div class="error-message">As senhas não coincidem</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="referralCode">Código de Indicação (Opcional)</label>
+                    <div class="input-wrapper">
+                        <i class="input-icon fas fa-users"></i>
+                        <input type="text" id="referralCode" placeholder="Digite o código de quem te indicou">
+                    </div>
+                </div>
+                
+                <button type="submit" class="login-btn">Cadastrar</button>
+            </form>
+                
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                </div>
+                
+                <div class="create-account">
+                    Não tem uma conta? <a href="#" onclick="switchTab('register')">Criar agora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de Esqueceu a Senha -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeForgotPasswordModal()">&times;</span>
+            <h2>Recuperação de Senha</h2>
+            <p>Por favor, notifique o suporte através do email:</p>
+            <p class="support-email">Furby@trading.com</p>
+            <div class="modal-footer">
+                <button class="modal-btn" onclick="closeForgotPasswordModal()">Fechar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>

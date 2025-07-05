@@ -1,0 +1,25 @@
+{
+  "name": "furbyfront",
+  "version": "1.0.0",
+  "description": "Frontend da plataforma de investimentos Furby",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "build": "echo \"Build completed\"",
+    "vercel-build": "echo \"Vercel build completed\"",
+    "preview": "npx serve . -p 8080"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "keywords": [
+    "investimentos",
+    "trading",
+    "frontend",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Furby Team",
+  "license": "MIT"
+}
